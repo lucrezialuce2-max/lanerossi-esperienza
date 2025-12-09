@@ -1,29 +1,117 @@
 /* * style.css
- * Foglio di stile personalizzato per Masterclass Lanerossi
- * Contiene importazione font, animazioni e utility non gestite da Tailwind
+ * Foglio di stile personalizzato per Masterclass Lanerossi (Stile Dark/Gold)
  */
 
-/* 1. Importazione Font Google (Merriweather) */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+/* 1. Importazione Font Google */
+/* 'Playfair Display' per i titoli, 'Lora' per il testo del corpo */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;700&display=swap');
 
-/* 2. Impostazioni Base */
-body {
-    font-family: 'Merriweather', serif;
-    /* Assicura che il font venga applicato sopra i default di Tailwind */
+/* 2. Definizione Variabili Colore */
+:root {
+    --color-bg-main: #0A1D14;      /* Verde bosco molto scuro per lo sfondo principale */
+    --color-bg-card: #152E26;      /* Verde petrolio per il contenitore */
+    --color-text-light: #F2EBE3;   /* Crema chiaro per i titoli */
+    --color-text-muted: #E6D5C2;   /* Crema dorato per il testo secondario */
+    --color-accent-gold: #D9A528;  /* Oro/Arancio per accenti e bottoni */
+    --color-border-gold: #B88A20;  /* Oro più scuro per i bordi */
 }
 
-/* 3. Classi di Utilità */
+/* 3. Impostazioni Base */
+body {
+    font-family: 'Lora', serif;
+    background-color: var(--color-bg-main);
+    color: var(--color-text-muted);
+    /* Trama di sfondo sottile (opzionale, si può rimuovere) */
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23152e26' fill-opacity='0.2' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-text-light);
+}
+
+/* 4. Classi di Stile Personalizzate */
+
+/* Contenitore Principale */
+.app-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid #2A4F43; /* Bordo sottile verde chiaro */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Header della vista Booking */
+.booking-header {
+    background-color: #0F251E; /* Leggermente più scuro del card body */
+    border-bottom: 1px solid var(--color-border-gold);
+    color: var(--color-text-light);
+}
+
+/* Testo Accento Oro */
+.text-gold {
+    color: var(--color-accent-gold);
+}
+
+/* Box Experience Area e Box Posti Disponibili */
+.info-box {
+    background-color: rgba(21, 46, 38, 0.8); /* Card bg con trasparenza */
+    border: 1px solid var(--color-border-gold);
+    border-left-width: 4px;
+    border-left-color: var(--color-accent-gold);
+}
+
+/* Icone */
+.icon-gold {
+    color: var(--color-accent-gold);
+    fill: currentColor; /* Per le icone che usano il riempimento */
+}
+
+/* Bottone Principale */
+.btn-gold {
+    background-color: var(--color-accent-gold);
+    color: var(--color-bg-main); /* Testo scuro su sfondo oro */
+    transition: all 0.3s ease;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.05em;
+}
+
+.btn-gold:hover {
+    background-color: #C79622; /* Oro leggermente più scuro */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(217, 165, 40, 0.4);
+}
+
+/* Input e Select Form */
+.form-input {
+    background-color: var(--color-bg-main);
+    border: 1px solid #2A4F43;
+    color: var(--color-text-muted);
+}
+
+.form-input:focus {
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 0 0 2px rgba(217, 165, 40, 0.2);
+}
+
+/* Select icona custom */
+.form-select-wrapper .lucide-calendar,
+.form-select-wrapper .lucide-arrow-left,
+.form-input-wrapper .lucide-user,
+.form-input-wrapper .lucide-mail {
+    color: var(--color-accent-gold);
+}
+
+
+/* 5. Classi di Utilità */
 .hidden {
     display: none;
 }
 
-/* 4. Animazioni */
-/* Classe per l'animazione di entrata */
+/* 6. Animazioni */
 .fade-in {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Definizione keyframes dell'animazione */
 @keyframes fadeIn {
     from { 
         opacity: 0; 
